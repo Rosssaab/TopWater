@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block title %}About Kangen Water{% endblock %}
+
+{% block content %}
+<div class="kangen-info py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h1 class="display-4 mb-4">About Kangen Water</h1>
+                <p class="lead mb-5">Discover the potential of enhanced hydration for your well-being</p>
+
+                <div class="introduction mb-5">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <p>As health-conscious living becomes increasingly important, more people are seeking innovative ways to enhance their overall well-being.</p>
+                            <p>One emerging trend is Kangen Water, a type of alkaline water claimed to offer various potential health benefits.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="{{ url_for('static', filename='images/benefits-lifestyle.jpg') }}" alt="Healthy Lifestyle" class="img-fluid rounded shadow-sm">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="what-is-kangen mb-5">
+                    <h2 class="h3 mb-3">What Is Kangen Water?</h2>
+                    <p>Kangen Water is a concept developed by Enagic, a Japanese company specialising in water ionisation technology.</p>
+                    <p>This water is produced through a process called electrolysis, which separates ordinary water into acidic and alkaline components using an ionisation machine. Kangen Water refers to the alkaline portion, which typically has a pH level between 8 and 9.5, making it more alkaline than standard tap water, which usually has a neutral pH of around 7.</p>
+                </div>
+
+                <div class="benefits mb-5">
+                    <h2 class="h3 mb-4">Potential Health Benefits of Kangen Water</h2>
+                    
+                    <div class="benefit-item mb-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <h3 class="h5 text-primary">1. Superior Hydration</h3>
+                                <p>Kangen Water's alkaline properties may support more efficient absorption by the body, helping cells stay optimally hydrated. Proper hydration plays a vital role in maintaining energy levels, supporting skin health, and ensuring the body's systems function effectively.</p>
+                            </div>
+                            <div class="col-md-6">
+                                <img src="{{ url_for('static', filename='images/benefits-hydration.jpg') }}" alt="Hydration Benefits" class="img-fluid rounded shadow-sm">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item mb-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <img src="{{ url_for('static', filename='images/benefits-antioxidant.jpg') }}" alt="Antioxidant Benefits" class="img-fluid rounded shadow-sm">
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="h5 text-primary">2. Antioxidant Qualities</h3>
+                                <p>Rich in negatively charged ions, Kangen Water may act as a source of antioxidants, which can combat harmful free radicals in the body. Reducing oxidative stress can support a youthful appearance and may lower the risk of certain chronic illnesses.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item mb-4">
+                        <h3 class="h5 text-primary">3. pH Balance Support</h3>
+                        <p>Maintaining a slightly alkaline pH in the body is thought to promote better health, as excessive acidity may contribute to various health challenges. Kangen Water may help counteract acidity, encouraging a more balanced internal environment.</p>
+                    </div>
+
+                    <div class="benefit-item mb-4">
+                        <h3 class="h5 text-primary">4. Digestive Health</h3>
+                        <p>Some users report that Kangen Water aids digestion by neutralising stomach acidity. While additional research is needed, individuals with digestive concerns may find alkaline water to be a helpful option.</p>
+                    </div>
+
+                    <div class="benefit-item mb-4">
+                        <h3 class="h5 text-primary">5. Detoxifying Effects</h3>
+                        <p>Kangen Water may assist the body's natural detoxification processes by flushing out toxins and neutralising acidic waste. This can provide added support to organs like the liver and kidneys.</p>
+                    </div>
+
+                    <div class="benefit-item mb-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <h3 class="h5 text-primary">6. Athletic Benefits</h3>
+                                <p>For athletes and fitness enthusiasts, Kangen Water's hydration benefits may improve endurance and muscle performance. Staying properly hydrated is essential for peak physical activity.</p>
+                            </div>
+                            <div class="col-md-6">
+                                <img src="{{ url_for('static', filename='images/benefits-sports.jpg') }}" alt="Athletic Benefits" class="img-fluid rounded shadow-sm">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item mb-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <img src="{{ url_for('static', filename='images/benefits-cooking.jpg') }}" alt="Cooking Benefits" class="img-fluid rounded shadow-sm">
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="h5 text-primary">7. Enhancing Cooking and Food Preparation</h3>
+                                <p>When used in cooking, Kangen Water may enhance the flavour and texture of food. Its alkaline nature could also help balance acidity in recipes, making meals both tastier and potentially more nutritious.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="conclusion mb-5">
+                    <h2 class="h3 mb-3">A Balanced Approach to Health</h2>
+                    <p>While Kangen Water has captured attention for its possible advantages, it's worth noting that scientific studies in this area are still ongoing. Many claims about its benefits are anecdotal, so it's essential to maintain realistic expectations.</p>
+                    <p>Incorporating Kangen Water into your lifestyle can be a positive step, but it should complement—not replace—healthy habits like eating a balanced diet, exercising regularly, and managing stress effectively.</p>
+                </div>
+
+                <div class="text-center">
+                    <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg">Enquire about our Kangen water products</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

@@ -57,7 +57,7 @@
                             <div class="card-body">
                                 <h2 class="h4 mb-3">Experience the Difference</h2>
                                 <p>Want to taste the difference for yourself? We offer sample bottles of our delicious, mineral-rich Kangen Water®. Experience the pure, refreshing taste that has made Kangen Water® a premium choice worldwide.</p>
-                                <a href="mailto:topwater.kangen@gmail.com?subject=Sample%20Request" class="btn btn-primary">
+                                <a href="{{ url_for('contact') }}" class="btn btn-primary">
                                     <i class="fas fa-envelope me-2"></i>Request a Sample
                                 </a>
                             </div>
@@ -70,7 +70,7 @@
 
                 <div class="contact-info">
                     <h2 class="h4 mb-3">Get in Touch</h2>
-                    <p>Contact us at <a href="mailto:info@topwater.uk">info@topwater.uk</a> for:</p>
+                    <p>We're here to answer any questions about Kangen Water® systems and their benefits. Contact us for:</p>
                     <ul class="list-unstyled">
                         <li class="mb-2">
                             <i class="fas fa-info-circle me-2 text-primary"></i>
@@ -89,8 +89,8 @@
                             Business opportunities
                         </li>
                     </ul>
-                    <a href="mailto:topwater.kangen@gmail.com" class="btn btn-outline-primary mt-3">
-                        <i class="fas fa-envelope me-2"></i>Email Us Today
+                    <a href="{{ url_for('contact') }}" class="btn btn-outline-primary mt-3">
+                        <i class="fas fa-envelope me-2"></i>Contact Us Today
                     </a>
                 </div>
             </div>
