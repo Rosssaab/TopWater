@@ -3,35 +3,88 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<div class="hero-section text-center py-5 bg-light">
+<!-- Hero Section -->
+<div class="hero-section text-center py-5">
     <div class="container">
-        <h1 class="display-4 mb-4">Welcome to Topwater UK</h1>
-        <p class="lead mb-4">Discover the Power of Kangen Water®</p>
-        <a class="btn btn-primary btn-lg mb-5" href="mailto:topwater.kangen@gmail.com?subject=Request%20for%20free%20eBook" role="button">Request a free ebook</a>
+        <div class="row align-items-center">
+            <div class="col-md-6 text-md-start">
+                <h1 class="display-4 mb-4">Welcome to TopWater UK</h1>
+                <p class="lead mb-4">Discover the Power of Kangen Water®</p>
+                <a class="btn btn-primary btn-lg mb-5" href="mailto:topwater.kangen@gmail.com?subject=Request%20for%20free%20eBook" role="button">Request a free ebook</a>
+            </div>
+            <div class="col-md-6">
+                <img src="{{ url_for('static', filename='images/hero-kitchen.jpg') }}" alt="Modern Kitchen with Kangen Water System" class="img-fluid rounded shadow-lg">
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="features-section py-5">
+<!-- Water Types Section -->
+<div class="water-types py-5">
     <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <h2 class="h3 mb-4">What is Kangen Water?</h2>
-                <p class="mb-4">
-                    The term "Kangen" translates to "return to origin" in Japanese. Kangen Water® refers to alkaline water created using Enagic's advanced water filtration and ionisation systems. For over 50 years, it has been utilised in Japan to support the body's natural alkaline balance.
-                </p>
-                <p>
-                    These devices convert regular tap water into refreshing and health-promoting alkaline water. Kangen Water® is often regarded as a healthier alternative to standard tap or purified water.
-                </p>
+        <h2 class="text-center mb-5">Different Types of Kangen Water</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="{{ url_for('static', filename='images/drinking-water.jpg') }}" class="card-img-top" alt="Drinking Water">
+                    <div class="card-body text-center">
+                        <h3 class="h5">Drinking Water</h3>
+                        <p>pH 8.5-9.5 - Perfect for daily hydration</p>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-6">
-                <div class="text-center">
-                    <img src="{{ url_for('static', filename='images/placeholder.jpg') }}" alt="Kangen Water System" class="img-fluid rounded shadow">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="{{ url_for('static', filename='images/beauty-water.jpg') }}" class="card-img-top" alt="Beauty Water">
+                    <div class="card-body text-center">
+                        <h3 class="h5">Beauty Water</h3>
+                        <p>pH 4.0-6.0 - Ideal for skin care</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="{{ url_for('static', filename='images/strong-water.jpg') }}" class="card-img-top" alt="Strong Kangen Water">
+                    <div class="card-body text-center">
+                        <h3 class="h5">Strong Kangen Water</h3>
+                        <p>pH 11.0 - For cleaning and food preparation</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Machine Showcase -->
+<div class="machine-showcase bg-light py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <img src="{{ url_for('static', filename='images/machine-display.jpg') }}" alt="Kangen Water Machine" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-md-6">
+                <h2 class="mb-4">Advanced Water Technology</h2>
+                <p>The term "Kangen" translates to "return to origin" in Japanese. Our advanced water filtration and ionisation systems have been trusted in Japan for over 50 years.</p>
+                <div class="features mt-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="{{ url_for('static', filename='images/icon-filter.png') }}" alt="Filter Icon" class="me-3" width="40">
+                        <span>Advanced Filtration System</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="{{ url_for('static', filename='images/icon-ph.png') }}" alt="pH Icon" class="me-3" width="40">
+                        <span>Adjustable pH Levels</span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <img src="{{ url_for('static', filename='images/icon-molecule.png') }}" alt="Molecule Icon" class="me-3" width="40">
+                        <span>Molecular Hydrogen Generation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Benefits Section -->
 <div class="benefits-section bg-light py-5">
     <div class="container">
         <h2 class="text-center mb-5">Benefits of Kangen Water</h2>

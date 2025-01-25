@@ -1,6 +1,16 @@
 .hero-section {
-    background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('../images/hero-bg.jpg') center/cover;
+    background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9));
     padding: 100px 0;
+}
+
+.hero-section img {
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.hero-section img:hover {
+    transform: translateY(-5px);
 }
 
 .card {
@@ -14,4 +24,59 @@
 .features-section img {
     max-width: 100%;
     height: auto;
+}
+
+/* Water Types Section */
+.water-types .card {
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.water-types .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.water-types .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Machine Showcase */
+.machine-showcase {
+    background-color: #f8f9fa;
+}
+
+.machine-showcase img {
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.features .d-flex {
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.features .d-flex:hover {
+    transform: translateX(10px);
+}
+
+/* General Styles */
+.btn-primary {
+    background-color: #0066cc;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0052a3;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,102,204,0.3);
 } 

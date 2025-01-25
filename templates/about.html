@@ -3,9 +3,110 @@
 {% block title %}About{% endblock %}
 
 {% block content %}
-<div class="container">
-    <h1>About TopWater UK</h1>
-    <p>Welcome to TopWater UK, your trusted source for healthy water solutions.</p>
-    <!-- Add more content about your company here -->
+<div class="about-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <h1 class="display-4 mb-4">About TopWater UK</h1>
+                <p class="lead mb-4">Your Premier Kangen Water Distributor in the United Kingdom</p>
+                
+                <div class="row mb-4">
+                    <div class="col-md-8">
+                        <div class="card shadow-sm border-0">
+                            <div class="card-body">
+                                <h2 class="h4 mb-3">Coming Soon to Somerset</h2>
+                                <p>We're excited to announce our upcoming launch as the UK's premier supplier of Kangen Water® and Enagic® water ionization systems. Based in the heart of Somerset, we're positioning ourselves as a direct importer and distributor for the entire United Kingdom.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="{{ url_for('static', filename='images/about-somerset.jpg') }}" alt="Beautiful Somerset" class="img-fluid rounded shadow-sm mb-4">
+                    </div>
+                </div>
+
+                <div class="row mb-4 align-items-center">
+                    <div class="col-md-4">
+                        <img src="{{ url_for('static', filename='images/about-machine.jpg') }}" alt="Kangen Water Machine" class="img-fluid rounded shadow-sm mb-4">
+                    </div>
+                    <div class="col-md-8">
+                        <h2 class="h4 mb-3">Our Commitment</h2>
+                        <ul class="list-unstyled">
+                            <li class="mb-3">
+                                <i class="fas fa-check-circle text-primary me-2"></i>
+                                Premium quality Kangen Water® systems at competitive prices
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-check-circle text-primary me-2"></i>
+                                Comprehensive after-sales support and service
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-check-circle text-primary me-2"></i>
+                                Direct import ensuring best market rates
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-check-circle text-primary me-2"></i>
+                                Expert consultation and setup assistance
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-8">
+                        <div class="card bg-light border-0 shadow-sm">
+                            <div class="card-body">
+                                <h2 class="h4 mb-3">Experience the Difference</h2>
+                                <p>Want to taste the difference for yourself? We offer sample bottles of our delicious, mineral-rich Kangen Water®. Experience the pure, refreshing taste that has made Kangen Water® a premium choice worldwide.</p>
+                                <a href="mailto:topwater.kangen@gmail.com?subject=Sample%20Request" class="btn btn-primary">
+                                    <i class="fas fa-envelope me-2"></i>Request a Sample
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="{{ url_for('static', filename='images/about-water-samples.jpg') }}" alt="Water Samples" class="img-fluid rounded shadow-sm">
+                    </div>
+                </div>
+
+                <div class="contact-info">
+                    <h2 class="h4 mb-3">Get in Touch</h2>
+                    <p>We're here to answer any questions about Kangen Water® systems and their benefits. Contact us for:</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <i class="fas fa-info-circle me-2 text-primary"></i>
+                            Product information and pricing
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-water me-2 text-primary"></i>
+                            Water sample requests
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-book me-2 text-primary"></i>
+                            Free educational materials
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-handshake me-2 text-primary"></i>
+                            Business opportunities
+                        </li>
+                    </ul>
+                    <a href="mailto:topwater.kangen@gmail.com" class="btn btn-outline-primary mt-3">
+                        <i class="fas fa-envelope me-2"></i>Email Us Today
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="sticky-top pt-4">
+                    <img src="{{ url_for('static', filename='images/about-sidebar.jpg') }}" alt="Clean Water" class="img-fluid rounded shadow-sm mb-4">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h5 mb-3">Why Choose TopWater UK?</h3>
+                            <img src="{{ url_for('static', filename='images/about-benefits.jpg') }}" alt="Water Benefits" class="img-fluid rounded mb-3">
+                            <p class="mb-0">Experience the highest quality water ionization systems backed by professional support and service.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %} 
