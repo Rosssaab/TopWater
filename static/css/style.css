@@ -1,0 +1,17 @@
+.hero-section {
+    background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('../images/hero-bg.jpg') center/cover;
+    padding: 100px 0;
+}
+
+.card {
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.features-section img {
+    max-width: 100%;
+    height: auto;
+} 

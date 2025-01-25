@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="hero-section text-center py-5 bg-light">
+    <div class="container">
+        <h1 class="display-4 mb-4">Welcome to Topwater UK</h1>
+        <p class="lead mb-4">Discover the Power of Kangen Water®</p>
+        <a class="btn btn-primary btn-lg mb-5" href="mailto:topwater.kangen@gmail.com?subject=Request%20for%20free%20eBook" role="button">Request a free ebook</a>
+    </div>
+</div>
+
+<div class="features-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="h3 mb-4">What is Kangen Water?</h2>
+                <p class="mb-4">
+                    The term "Kangen" translates to "return to origin" in Japanese. Kangen Water® refers to alkaline water created using Enagic's advanced water filtration and ionisation systems. For over 50 years, it has been utilised in Japan to support the body's natural alkaline balance.
+                </p>
+                <p>
+                    These devices convert regular tap water into refreshing and health-promoting alkaline water. Kangen Water® is often regarded as a healthier alternative to standard tap or purified water.
+                </p>
+            </div>
+            <div class="col-md-6">
+                <div class="text-center">
+                    <img src="{{ url_for('static', filename='images/placeholder.jpg') }}" alt="Kangen Water System" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="benefits-section bg-light py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Benefits of Kangen Water</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-tint fa-3x mb-3 text-primary"></i>
+                        <h3 class="h5">Hydration</h3>
+                        <p>Superior hydration through optimal molecular structure</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-balance-scale fa-3x mb-3 text-primary"></i>
+                        <h3 class="h5">pH Balance</h3>
+                        <p>Helps maintain your body's natural pH balance</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-shield-alt fa-3x mb-3 text-primary"></i>
+                        <h3 class="h5">Antioxidant Properties</h3>
+                        <p>Rich in antioxidant properties</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
