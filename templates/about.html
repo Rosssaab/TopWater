@@ -12,7 +12,7 @@
                 
                 <div class="row mb-4">
                     <div class="col-md-8">
-                        <div class="card shadow-sm border-0">
+                        <div class="card shadow-sm border-0 h-100">
                             <div class="card-body">
                                 <h2 class="h4 mb-3">Coming Soon to Somerset</h2>
                                 <p>We're excited to announce our upcoming launch as the UK's premier supplier of Kangen Water® and Enagic® water ionization systems. Based in the heart of Somerset, we're positioning ourselves as a direct importer and distributor for the entire United Kingdom.</p>
@@ -20,7 +20,9 @@
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <img src="{{ url_for('static', filename='images/about-somerset.jpg') }}" alt="Beautiful Somerset" class="img-fluid rounded shadow-sm mb-4">
+                        <div class="image-container">
+                            <img src="{{ url_for('static', filename='images/about-somerset.jpg') }}" alt="Beautiful Somerset" class="img-fluid rounded shadow-sm mb-4">
+                        </div>
                     </div>
                 </div>
 

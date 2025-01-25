@@ -83,14 +83,64 @@
 
 .benefit-item img {
     width: 100%;
-    height: 300px;  /* Fixed height for all benefit images */
-    object-fit: cover;  /* This ensures images cover the area without distortion */
-    object-position: center;  /* Centers the image within the container */
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .introduction img {
     width: 100%;
-    height: 300px;  /* Same height as benefit images */
+    height: 300px;
     object-fit: cover;
     object-position: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effects */
+.benefit-item img:hover,
+.introduction img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Target all content images across the site */
+.img-fluid {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for content images */
+.img-fluid:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Exclude icons from the hover effect */
+.fas,
+.far,
+.fab,
+img[width="40"] {
+    transition: none;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Keep the fixed height for benefits page images */
+.benefit-item img,
+.introduction img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.image-container {
+    overflow: hidden;  /* Contains the hover effect */
+    margin-bottom: 1.5rem;
+}
+
+.image-container img {
+    display: block;  /* Removes any extra space below image */
+    width: 100%;
+    height: auto;
 }

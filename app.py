@@ -69,9 +69,9 @@ def contact():
     
     return render_template('contact.html', form=form)
 
-@app.route('/kangen')
-def kangen():
-    return render_template('kangen.html')
+@app.route('/benefits')
+def benefits():
+    return render_template('benefits.html')
 
 if __name__ == '__main__':
     app.run(debug=True, port=8090) 
