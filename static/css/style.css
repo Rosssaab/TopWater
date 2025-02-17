@@ -144,3 +144,11 @@ img[width="40"] {
     width: 100%;
     height: auto;
 }
+
+body {
+    background: 
+        linear-gradient(to right, transparent 50%, rgba(0,123,255,0.03) 50%),
+        linear-gradient(to bottom, transparent 50%, rgba(0,123,255,0.03) 50%);
+    background-size: 40px 40px;
+    background-attachment: fixed;
+}

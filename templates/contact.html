@@ -3,109 +3,118 @@
 {% block title %}Contact{% endblock %}
 
 {% block content %}
-<div class="contact-section py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <h1 class="display-4 mb-4">Contact Us</h1>
-                <p class="lead mb-4">Get in touch with TopWater UK</p>
-                
-                <div class="contact-info mb-5">
-                    <div class="d-flex align-items-center mb-3">
-                        <i class="fas fa-map-marker-alt fa-2x text-primary me-3"></i>
-                        <div>
-                            <h3 class="h5 mb-1">Location</h3>
-                            <p class="mb-0">Somerset, United Kingdom</p>
+<div class="container py-5">
+    <!-- <div class="alert alert-danger text-center mb-4" role="alert">
+        <h4 class="alert-heading"><i class="fas fa-exclamation-triangle"></i> PayPal Test Mode Active</h4>
+        <p class="mb-0" style="font-size: 1.2rem; font-weight: bold;">
+            ⚠️ IMPORTANT: PayPal is currently in TEST MODE - No actual payments will be processed ⚠️
+        </p>
+    </div> -->
+
+    <div class="contact-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1 class="display-4 mb-4">Contact Us</h1>
+                    <p class="lead mb-4">Get in touch with TopWater UK</p>
+                    
+                    <div class="contact-info mb-5">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-map-marker-alt fa-2x text-primary me-3"></i>
+                            <div>
+                                <h3 class="h5 mb-1">Location</h3>
+                                <p class="mb-0">Somerset, United Kingdom</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-envelope fa-2x text-primary me-3"></i>
+                            <div>
+                                <h3 class="h5 mb-1">Email</h3>
+                                <p class="mb-0">info@topwater.uk</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="d-flex align-items-center mb-3">
-                        <i class="fas fa-envelope fa-2x text-primary me-3"></i>
-                        <div>
-                            <h3 class="h5 mb-1">Email</h3>
-                            <p class="mb-0">info@topwater.uk</p>
+
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                                    {{ message | nl2br | safe }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                            <form method="POST" class="contact-form">
+                                {{ form.hidden_tag() }}
+                                <div class="mb-3">
+                                    {{ form.name.label(class="form-label") }}
+                                    {{ form.name(class="form-control" + (" is-invalid" if form.name.errors else "")) }}
+                                    {% if form.name.errors %}
+                                        {% for error in form.name.errors %}
+                                            <div class="invalid-feedback">{{ error }}</div>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                                <div class="mb-3">
+                                    {{ form.email.label(class="form-label") }}
+                                    {{ form.email(class="form-control" + (" is-invalid" if form.email.errors else "")) }}
+                                    {% if form.email.errors %}
+                                        {% for error in form.email.errors %}
+                                            <div class="invalid-feedback">{{ error }}</div>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                                <div class="mb-3">
+                                    {{ form.subject.label(class="form-label") }}
+                                    {{ form.subject(class="form-control" + (" is-invalid" if form.subject.errors else "")) }}
+                                    {% if form.subject.errors %}
+                                        {% for error in form.subject.errors %}
+                                            <div class="invalid-feedback">{{ error }}</div>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                                <div class="mb-3">
+                                    {{ form.message.label(class="form-label") }}
+                                    {{ form.message(class="form-control" + (" is-invalid" if form.message.errors else ""), rows="5") }}
+                                    {% if form.message.errors %}
+                                        {% for error in form.message.errors %}
+                                            <div class="invalid-feedback">{{ error }}</div>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                                {{ form.submit(class="btn btn-primary w-100") }}
+                            </form>
                         </div>
                     </div>
                 </div>
-
-                {% with messages = get_flashed_messages(with_categories=true) %}
-                    {% if messages %}
-                        {% for category, message in messages %}
-                            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
-                                {{ message }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-                {% endwith %}
-
-                <div class="card border-0 shadow-sm">
-                    <div class="card-body">
-                        <form method="POST" class="contact-form">
-                            {{ form.hidden_tag() }}
-                            <div class="mb-3">
-                                {{ form.name.label(class="form-label") }}
-                                {{ form.name(class="form-control" + (" is-invalid" if form.name.errors else "")) }}
-                                {% if form.name.errors %}
-                                    {% for error in form.name.errors %}
-                                        <div class="invalid-feedback">{{ error }}</div>
-                                    {% endfor %}
-                                {% endif %}
-                            </div>
-                            <div class="mb-3">
-                                {{ form.email.label(class="form-label") }}
-                                {{ form.email(class="form-control" + (" is-invalid" if form.email.errors else "")) }}
-                                {% if form.email.errors %}
-                                    {% for error in form.email.errors %}
-                                        <div class="invalid-feedback">{{ error }}</div>
-                                    {% endfor %}
-                                {% endif %}
-                            </div>
-                            <div class="mb-3">
-                                {{ form.subject.label(class="form-label") }}
-                                {{ form.subject(class="form-control" + (" is-invalid" if form.subject.errors else "")) }}
-                                {% if form.subject.errors %}
-                                    {% for error in form.subject.errors %}
-                                        <div class="invalid-feedback">{{ error }}</div>
-                                    {% endfor %}
-                                {% endif %}
-                            </div>
-                            <div class="mb-3">
-                                {{ form.message.label(class="form-label") }}
-                                {{ form.message(class="form-control" + (" is-invalid" if form.message.errors else ""), rows="5") }}
-                                {% if form.message.errors %}
-                                    {% for error in form.message.errors %}
-                                        <div class="invalid-feedback">{{ error }}</div>
-                                    {% endfor %}
-                                {% endif %}
-                            </div>
-                            {{ form.submit(class="btn btn-primary w-100") }}
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <img src="{{ url_for('static', filename='images/contact-image.jpg') }}" alt="Contact Us" class="img-fluid rounded shadow-sm mb-4">
-                <div class="card border-0 shadow-sm">
-                    <div class="card-body">
-                        <h3 class="h5 mb-3">Why Contact Us?</h3>
-                        <ul class="list-unstyled mb-0">
-                            <li class="mb-2">
-                                <i class="fas fa-check text-primary me-2"></i>
-                                Expert advice on Kangen Water® systems
-                            </li>
-                            <li class="mb-2">
-                                <i class="fas fa-check text-primary me-2"></i>
-                                Request water samples
-                            </li>
-                            <li class="mb-2">
-                                <i class="fas fa-check text-primary me-2"></i>
-                                Product demonstrations
-                            </li>
-                            <li class="mb-2">
-                                <i class="fas fa-check text-primary me-2"></i>
-                                Business opportunities
-                            </li>
-                        </ul>
+                <div class="col-lg-6">
+                    <img src="{{ url_for('static', filename='images/contact-image.jpg') }}" alt="Contact Us" class="img-fluid rounded shadow-sm mb-4">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h5 mb-3">Why Contact Us?</h3>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2">
+                                    <i class="fas fa-check text-primary me-2"></i>
+                                    Expert advice on Kangen Water® systems
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-check text-primary me-2"></i>
+                                    Request water samples
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-check text-primary me-2"></i>
+                                    Product demonstrations
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-check text-primary me-2"></i>
+                                    Business opportunities
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

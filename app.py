@@ -3,10 +3,16 @@ from flask_mail import Mail, Message
 from forms import ContactForm
 from config import Config
 import smtplib
+import jinja2
 
 app = Flask(__name__)
 app.config.from_object(Config)
 mail = Mail(app)
+
+# Add the nl2br filter
+@app.template_filter('nl2br')
+def nl2br(value):
+    return jinja2.utils.markupsafe.Markup(value.replace('\n', '<br>'))
 
 @app.route('/')
 @app.route('/home')
@@ -22,56 +28,84 @@ def contact():
     form = ContactForm()
     if form.validate_on_submit():
         try:
+            # Send the form data to site owner
             msg = Message(
-                subject=f"TopWater UK Contact: {form.subject.data}",
-                sender=app.config['MAIL_DEFAULT_SENDER'],
-                recipients=[app.config['MAIL_USERNAME']],
-                reply_to=form.email.data,
-                body=f"""
-                New message from TopWater UK website:
-                
-                Name: {form.name.data}
-                Email: {form.email.data}
-                Subject: {form.subject.data}
-                
-                Message:
-                {form.message.data}
-                """
+                subject=f"Contact Form: {form.subject.data}",
+                recipients=['info@topwater.uk'],
+                body=f"Name: {form.name.data}\nEmail: {form.email.data}\nSubject: {form.subject.data}\n\nMessage:\n{form.message.data}"
             )
+            # Add headers to prevent spam classification
+            msg.extra_headers = {
+                "List-Unsubscribe": "<mailto:info@topwater.uk>",
+                "Precedence": "bulk",
+                "X-Auto-Response-Suppress": "OOF",
+                "Auto-Submitted": "auto-generated"
+            }
+            
+            # Add a more professional format
+            msg.html = f"""
+            <html>
+                <body>
+                    <h2>New Contact Form Submission</h2>
+                    <p><strong>Name:</strong> {form.name.data}</p>
+                    <p><strong>Email:</strong> {form.email.data}</p>
+                    <p><strong>Subject:</strong> {form.subject.data}</p>
+                    <h3>Message:</h3>
+                    <p>{form.message.data}</p>
+                    <hr>
+                    <p><small>This email was sent from the TopWater UK contact form.</small></p>
+                </body>
+            </html>
+            """
+            
             mail.send(msg)
             
-            # Send auto-reply to the user
+            # Auto-reply with similar headers
             auto_reply = Message(
                 subject="Thank you for contacting TopWater UK",
-                sender=app.config['MAIL_DEFAULT_SENDER'],
                 recipients=[form.email.data],
-                body=f"""
-                Dear {form.name.data},
-                
-                Thank you for contacting TopWater UK. We have received your message and will get back to you shortly.
-                
-                Best regards,
-                TopWater UK Team
-                """
+                sender=("TopWater UK", "info@topwater.uk")
             )
+            auto_reply.extra_headers = {
+                "List-Unsubscribe": "<mailto:info@topwater.uk>",
+                "Precedence": "bulk",
+                "X-Auto-Response-Suppress": "OOF",
+                "Auto-Submitted": "auto-generated"
+            }
+            auto_reply.html = f"""
+            <html>
+                <body>
+                    <h2>Thank you for contacting TopWater UK</h2>
+                    <p>Dear {form.name.data},</p>
+                    <p>We have received your message and will get back to you shortly.</p>
+                    <h3>Your message details:</h3>
+                    <p><strong>Subject:</strong> {form.subject.data}</p>
+                    <p><strong>Message:</strong><br>{form.message.data}</p>
+                    <hr>
+                    <p>Best regards,<br>
+                    TopWater UK Team<br>
+                    <a href="mailto:info@topwater.uk">info@topwater.uk</a></p>
+                </body>
+            </html>
+            """
+            
             mail.send(auto_reply)
             
-            flash('Your message has been sent successfully! We will get back to you soon.', 'success')
+            flash('Your message has been sent successfully!\nWe will get back to you soon.\nCheck your spam folder', 'success')
             return redirect(url_for('contact'))
-            
-        except smtplib.SMTPAuthenticationError:
-            flash('Error: Could not authenticate with email server. Please try again later or email us directly.', 'danger')
-        except smtplib.SMTPException as e:
-            flash(f'An error occurred while sending the message. Please try again later.', 'danger')
         except Exception as e:
-            flash('An unexpected error occurred. Please try again later.', 'danger')
-            app.logger.error(f'Error sending email: {str(e)}')
-    
+            flash(f'Error: Could not authenticate with email server. Please try again later or email us directly.', 'error')
+            if app.debug:
+                print(f"Mail error: {str(e)}")
     return render_template('contact.html', form=form)
 
 @app.route('/benefits')
 def benefits():
     return render_template('benefits.html')
 
+@app.route('/checkout')
+def checkout():
+    return render_template('checkout.html')
+
 if __name__ == '__main__':
-    app.run(debug=True, port=8090) 
+    app.run(host='0.0.0.0', port=8090) 
